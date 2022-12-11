@@ -4,29 +4,13 @@ module u21_ref (
     output [2:0] wiring
 );
 
-reg [11:0] w;
-assign wiring = w[3*pin+:3];
+parameter U21_REF_LEN = 16;
+(* rom_style = "block" *)
+reg [11:0] u21_ref_data [0:U21_REF_LEN-1];
+initial $readmemb("u21_ref.mem", u21_ref_data);
 
-always @ (func) begin
-    case (func)
-        4'b0000 : w = 12'b000_000_000_000;
-        4'b0001 : w = 12'b010_011_010_000;
-        4'b0010 : w = 12'b011_010_000_000;
-        4'b0011 : w = 12'b011_000_000_000;
-        4'b0100 : w = 12'b010_011_000_000;
-        4'b0101 : w = 12'b010_000_000_000;
-        4'b0110 : w = 12'b011_000_010_000;
-        4'b0111 : w = 12'b011_010_010_000;
-        4'b1000 : w = 12'b011_010_010_001;
-        4'b1001 : w = 12'b001_011_010_000;
-        4'b1010 : w = 12'b001_010_000_000;
-        4'b1011 : w = 12'b010_011_001_000;
-        4'b1100 : w = 12'b001_011_000_000;
-        4'b1101 : w = 12'b011_010_001_000;
-        4'b1110 : w = 12'b010_011_010_001;
-        4'b1111 : w = 12'b001_000_000_000;
-    endcase
-end
+wire [11:0] wfull = u21_ref_data[func];
+assign wiring = wfull[3*pin+:3];
 
 endmodule
 
