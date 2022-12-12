@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2022 Tamas Hubai
+
+`default_nettype none
+
 module u21_ref (
     input [3:0] func,
     input [1:0] pin,

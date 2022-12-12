@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2022 Tamas Hubai
+
+`default_nettype none
+
 module mux1 (
     input [1:0] in,
     input sel,

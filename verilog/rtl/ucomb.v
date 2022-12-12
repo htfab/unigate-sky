@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2022 Tamas Hubai
+
+`default_nettype none
+
 module ucomb (
     input [3:0] u21_in,
     input [5:0] u31_in,

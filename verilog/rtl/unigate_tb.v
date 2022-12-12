@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2022 Tamas Hubai
+
+`default_nettype none
+
 module unigate_tb ();
 
 reg clk;
